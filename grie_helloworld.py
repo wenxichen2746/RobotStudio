@@ -5,7 +5,7 @@ import lewansoul_lx16a
 import serial
 import numpy as np
 #LX16A.initialize("/dev/cu.usbserial-14310")
-
+import matplotlib.pyplot as plt
 
 SERIAL_PORT = 'COM9'
 
@@ -88,24 +88,41 @@ ang_8_base=186
 Amp=200
 t = 0
 womiga=3
+
+t=[]
+a1=[]
+a2=[]
+a3=[]
+a4=[]
+
+a5=[]
+a6=[]
+a8=[]
 while True:
 
-
+    ang_m1=sin(womiga*t)*10+ang_1_base
+    ang_m5=sin(womiga*t)*10+ang_5_base
     ang_m6=sin(womiga*t)*Amp+ang_6_base
     ang_m7=ang_m6+ang_67off
 
-
+    ang_m4=-sin(womiga*t)*100+ang_4_base
 
     servo1.move(ang_1_base)
     servo2.move(ang_m6)
     servo3.move(ang_m7)
-    servo4.move(-sin(womiga*t)*100+ang_4_base)
+    servo4.move(ang_m4)
 
 
-    servo5.move(ang_5_base)
+    servo5.move(ang_m5)
     servo6.move(ang_m6)
     servo7.move(ang_m7)
-    servo8.move(-sin(womiga*t)*100+ang_8_base)
+    servo8.move(ang_m4)
 
     time.sleep(0.05)
     t += 0.05
+
+
+    a1.append(ang_1_base)
+    a2.append(ang_m6)
+    a3.append(ang_m7)
+    a4.append(ang_m4)
