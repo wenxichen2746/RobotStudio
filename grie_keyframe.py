@@ -92,7 +92,7 @@ womiga=3
 
 config1=np.load('captured_frame/config_stand.npy')
 config2=np.load('captured_frame/config_lean.npy')
-t_req=[1,1,1]
+t_req=[0.2,0.5,0.2]
 dt=0.01
 #calculate the path from one config to another
 configpath=trapezoid_path(config1[0],config2[0],t_req,dt)
@@ -103,13 +103,14 @@ for i in range(1,8):
 print('configpath.shape',configpath.shape)
 
 #excute the config transform
-for i in range(configpath.shape[0]):
+for ti in range(configpath.shape[1]):
     for mi in range(1,9):
-        servo_list[mi].move(configpath[i,mi])
+        servo_list[mi].move(configpath[mi-1,ti])
     time.sleep(dt)
+    #print(ti)
 
-
-
+print('configpath excuted')
+time.sleep(5)
 
 
 

@@ -75,7 +75,7 @@ for i in range(1,9):
         print('Motor {i} fails to response')
 
 config=[ang0_m1,ang0_m2,ang0_m3,ang0_m4,ang0_m5,ang0_m6,ang0_m7,ang0_m8]
-np.save('captured_frame/config_stand.npy',config)
+np.save('captured_frame/config_lean.npy',config)
 
 
 for i in range(1,9):
