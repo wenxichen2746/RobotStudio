@@ -1,4 +1,5 @@
 import numpy as np
+from math import sin
 def trapezoid_path(ang1,ang2,t_req,dt):
 
 
@@ -48,3 +49,20 @@ def param2action(param,t):
         actionarray[i+3]=amp[i]*sin(womiga*t+phase[i]+np.pi)+devia[i]
     #two leg act in opposite phase
     return actionarray
+
+def param2action_m8(param,t):
+    actionarray=np.zeros((8))
+    amp=param['amp']
+    phase=param['phase']
+    devia=param['devia']
+    womiga=param['womiga']
+
+    actionarray[0]=amp[0]*sin(womiga*t+phase[0])+devia[0]
+    actionarray[1]=amp[1]*sin(womiga*t+phase[1])+devia[1]
+    actionarray[2]=amp[1]*sin(womiga*t+phase[1])+devia[1]
+    actionarray[3]=amp[2]*sin(womiga*t+phase[2])+devia[1]
+
+    actionarray[4]=amp[0]*sin(womiga*t+phase[0])+devia[0]
+    actionarray[5]=-amp[1]*sin(womiga*t+phase[1])+devia[1]
+    actionarray[6]=-amp[1]*sin(womiga*t+phase[1])+devia[1]
+    actionarray[7]=-amp[2]*sin(womiga*t+phase[2])+devia[1]
