@@ -7,8 +7,8 @@ import numpy as np
 #LX16A.initialize("/dev/cu.usbserial-14310")
 
 
-#SERIAL_PORT = 'COM9'
-SERIAL_PORT = '/dev/ttyUSB0'
+SERIAL_PORT = 'COM9'
+#SERIAL_PORT = '/dev/ttyUSB0'
 controller = lewansoul_lx16a.ServoController(
     serial.Serial(SERIAL_PORT, 115200, timeout=1),
 )

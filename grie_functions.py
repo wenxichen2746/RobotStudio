@@ -32,3 +32,19 @@ def trapezoid_path(ang1,ang2,t_req,dt):
         ang.append(new_ang)
         t+=dt
     return ang
+
+    
+def param2action(param,t):
+    actionarray=np.zeros((6))
+    amp=param['amp']
+    phase=param['phase']
+    devia=param['devia']
+    womiga=param['womiga']
+    for i in range(3):
+        actionarray[i]=amp[i]*sin(womiga*t+phase[i])+devia[i]
+    actionarray[3]=amp[0]*sin(womiga*t+phase[0])+devia[0]
+    #both hip acting same
+    for i in range(1,3):
+        actionarray[i+3]=amp[i]*sin(womiga*t+phase[i]+np.pi)+devia[i]
+    #two leg act in opposite phase
+    return actionarray
