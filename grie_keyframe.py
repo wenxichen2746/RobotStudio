@@ -10,21 +10,15 @@ from grie_functions import *
 from grie_motorcontrol import mcontroller
 from grie_functions import *
 
+
+
 c=mcontroller()
 c.bootcheck()
 
 
 
-
-
 #this is measure by putting all joint straight and read the position
-ang_1_base=674-20
-ang_2_base=527
-ang_4_base=386
 
-ang_5_base=645-20
-ang_6_base=533
-ang_8_base=186
 
 Amp=200
 t = 0
