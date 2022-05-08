@@ -9,9 +9,10 @@ from grie_functions import *
 
 #param=np.load('bestparam_hc0504.npy',allow_pickle='TRUE').item()
 
-param={'amp': [ 0.16746452, -0.20691382, -0.06519423],\
+param={'amp': [ 0.16746452, -0.18691382, -0.06519423],\
        'phase': [4188.479158445201, 4140.7734509332095, 4206.896595629934],\
-       'devia': [-0.009991  ,  0.03, -0.00872341], 'womiga': 3.578031868698937}
+       'devia': [-0.009991  ,  +0.51, -0.00872341], 'womiga': 3.878031868698937}
+# devi[1] + goes ba
 SERIAL_PORT = '/dev/ttyUSB0'
 controller=lewansoul_lx16a.ServoController(
             serial.Serial(SERIAL_PORT, 115200, timeout=1),

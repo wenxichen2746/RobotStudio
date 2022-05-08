@@ -38,7 +38,7 @@ config0=np.load('captured_frame/config_stand.npy')
 config1=np.load('captured_frame/config_1.npy')
 config2=np.load('captured_frame/config_2.npy')
 config3=np.load('captured_frame/config_3.npy')
-config4=np.load('captured_frame/config_4.npy')
+#config4=np.load('captured_frame/config_4.npy')
 t_req=[0.2,0.5,0.2]
 dt=0.01
 
@@ -65,13 +65,14 @@ def stepconfig(config1,config2,t_req,dt,servo_list):
 
 t_req=[0.2,0.5,0.2]
 stepconfig(config0,config1,t_req,dt,servo_list)
-time.sleep(2)
+time.sleep(0)
 t_req=[0.2,0.2,0.2]
 stepconfig(config1,config2,t_req,dt,servo_list)
-time.sleep(10)
-'''
+time.sleep(0)
+
 stepconfig(config2,config3,t_req,dt,servo_list)
 time.sleep(1)
+'''
 stepconfig(config3,config4,t_req,dt,servo_list)
 time.sleep(1)
 stepconfig(config4,config0,t_req,dt,servo_list)
