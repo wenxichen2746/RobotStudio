@@ -60,9 +60,10 @@ def param2action_m8(param,t):
     actionarray[0]=amp[0]*sin(womiga*t+phase[0])+devia[0]
     actionarray[1]=amp[1]*sin(womiga*t+phase[1])+devia[1]
     actionarray[2]=amp[1]*sin(womiga*t+phase[1])+devia[1]
-    actionarray[3]=amp[2]*sin(womiga*t+phase[2])+devia[1]
+    actionarray[3]=amp[2]*sin(womiga*t+phase[2])+devia[2]
 
     actionarray[4]=amp[0]*sin(womiga*t+phase[0])+devia[0]
-    actionarray[5]=-amp[1]*sin(womiga*t+phase[1])+devia[1]
-    actionarray[6]=-amp[1]*sin(womiga*t+phase[1])+devia[1]
-    actionarray[7]=-amp[2]*sin(womiga*t+phase[2])+devia[1]
+    actionarray[5]=amp[1]*sin(womiga*t+phase[1])-devia[1]
+    actionarray[6]=amp[1]*sin(womiga*t+phase[1])-devia[1]
+    actionarray[7]=amp[2]*sin(womiga*t+phase[2])-devia[2]
+    return actionarray

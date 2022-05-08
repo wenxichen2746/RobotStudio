@@ -8,11 +8,10 @@ import math
 from grie_functions import *
 
 #param=np.load('bestparam_hc0504.npy',allow_pickle='TRUE').item()
-param={'amp': [ 0.54119211, -0.29115442,  0.82053762],\
-     'phase': [2.2515711 , 0.33513259, 0.70721696],\
-          'devia': [-0.01431187,  0.18189022, -0.01911612],\
-               'womiga': 2}
 
+param={'amp': [ 0.16746452, -0.20691382, -0.06519423],\
+       'phase': [4188.479158445201, 4140.7734509332095, 4206.896595629934],\
+       'devia': [-0.009991  ,  0.03, -0.00872341], 'womiga': 3.578031868698937}
 SERIAL_PORT = '/dev/ttyUSB0'
 controller=lewansoul_lx16a.ServoController(
             serial.Serial(SERIAL_PORT, 115200, timeout=1),
@@ -28,7 +27,9 @@ for i in range(1,9):
 tlimit=15
 t=0
 config_stand=np.load('captured_frame/config_stand.npy')
-
+for mi in range(1,9):
+    servo_list[mi].move(config_stand[mi-1])
+time.sleep(2)
 while t<tlimit:
     actionarray_m8=param2action_m8(param,t)
     actionarray_m8=actionarray_m8*1000/(0.66*np.pi)
@@ -45,7 +46,7 @@ while t<tlimit:
 for mi in range(1,9):
     servo_list[mi].move(config_stand[mi-1])
 
-
+time.sleep(0.5)
 Vlist=[]
 for i in range(1,9):
     Voltage=controller.get_voltage(i)
@@ -53,8 +54,9 @@ for i in range(1,9):
 Vmax=max(Vlist)
 Vmin=min(Vlist)
 print(f'Voltage check, min {Vmin}, max {Vmax}')#voltage check
-
+'''
 for i in range(1,9):
     controller.motor_off(i)
 
 print(f'Machine Shutting down')
+'''
